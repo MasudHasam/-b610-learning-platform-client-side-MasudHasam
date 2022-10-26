@@ -3,12 +3,14 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Login from '../Authentication/Login';
 import SignUp from '../Authentication/SignUp';
 import Blog from '../Blog/Blog';
+import CheckOut from '../CheckOut/CheckOut';
 import Common from '../Common/Common';
 import Coursess from '../Courses/Coursess';
 import DarkTheme from '../DarkTheme/DarkTheme';
 import FAQ from '../FAQ/FAQ';
 import Home from '../Home/Home';
 import Main from '../Layout/Main';
+import PrivetRout from '../PrivetRout/PrivetRout';
 import SideNav from '../sheared/SideNav/SideNav';
 import './Routes.css'
 
@@ -51,13 +53,18 @@ const Routes = () => {
                     element: <DarkTheme></DarkTheme>
                 },
                 {
+                    path: '/checkout',
+                    element: <PrivetRout><CheckOut></CheckOut></PrivetRout>
+                },
+                {
                     path: '/login',
                     element: <Login></Login>
                 },
                 {
                     path: '/signup',
                     element: <SignUp></SignUp>
-                }
+                },
+
             ]
         }
     ])

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Course = ({ course }) => {
     const { name, about, picture } = course;
@@ -10,7 +11,7 @@ const Course = ({ course }) => {
                         <h2 className="card-title mb-6">{name}</h2>
                         <p>{about.slice(0, 100)}...</p>
                         <div className="card-actions justify-start mt-7">
-                            <button className="btn btn-primary">Get premium access </button>
+                            <Link to='/checkout' className="btn btn-primary">Get premium access </Link>
                             <button className="btn btn-primary">Details</button>
                         </div>
                     </div>
@@ -18,8 +19,9 @@ const Course = ({ course }) => {
                     <div className="card-body  lg:hidden">
                         <h2 className="card-title">{name}</h2>
                         <p>{about}</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Listen</button>
+                        <div className="card-actions justify-start flex flex-row gap-2">
+                            <Link to='/checkout' className="btn btn-primary">Get premium access </Link>
+                            <button className="btn btn-primary">Details</button>
                         </div>
                     </div>
                 </div>

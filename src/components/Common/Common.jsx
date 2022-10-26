@@ -1,13 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
+import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { UserContext } from '../../AuthContext/AuthContext';
 import Coursess from '../Courses/Coursess';
 import SideNav from '../sheared/SideNav/SideNav';
 
 const Common = () => {
-    const [category, setCategory] = useState();
-    const [id, setId] = useState([1]);
+    const { category, setCategory, id, setId } = useContext(UserContext);
+    // const [id, setId] = useState([1]);
     const [courses, setCourses] = useState();
 
 
@@ -38,7 +40,7 @@ const Common = () => {
     return (
         <div>
             <div className='gridColumns w-11/12 mx-auto'>
-                <SideNav category={category} hadelDynamicRout={hadelDynamicRout}></SideNav>
+                <SideNav hadelDynamicRout={hadelDynamicRout}></SideNav>
                 <Coursess courses={courses}></Coursess>
             </div>
         </div>

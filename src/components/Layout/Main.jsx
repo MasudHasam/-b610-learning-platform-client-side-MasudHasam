@@ -5,7 +5,9 @@ import Navbar from '../sheared/Navbar/Navbar';
 const Main = () => {
     return (
         <div>
-            <Navbar></Navbar>
+            <div>
+                <Navbar></Navbar>
+            </div>
             <div>
                 <Outlet></Outlet>
             </div>

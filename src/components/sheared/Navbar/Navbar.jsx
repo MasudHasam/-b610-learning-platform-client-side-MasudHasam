@@ -2,8 +2,19 @@ import React from 'react';
 import image from '../../../images/logo (2).png'
 import { BsCartCheck } from 'react-icons/bs';
 import { Link, NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../../../AuthContext/AuthContext';
+import { GiHumanTarget } from 'react-icons/gi';
 
 const Navbar = () => {
+    const { handelLogOut, user } = useContext(UserContext);
+    const logOut = () => {
+        handelLogOut()
+            .then(result => {
+
+            })
+            .catch(error => console.log(error));
+    }
 
     return (
         <div className="navbar bg-orange-200">
@@ -37,10 +48,21 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <BsCartCheck className='mr-2 w-6 h-6'></BsCartCheck>
-                <button className='mr-2'><img src="" alt="profile" /></button>
-                <NavLink to='/signup' className='mr-2'>sign up</NavLink>
-                <NavLink to='/login' className='mr-2'>Log In</NavLink>
+                <NavLink to='/checkout'><BsCartCheck className='mr-2 w-6 h-6'></BsCartCheck></NavLink>
+                {
+                    user && user?.photoURL ?
+                        <button className='mr-2 w-8 h-8 '><img className='rounded-full' src={user?.photoURL} alt="" /></button> :
+                        <GiHumanTarget className='mr-2 w-8 h-8 '></GiHumanTarget>
+                }
+                {
+                    user?.uid ?
+                        <NavLink onClick={logOut}>Log Out</NavLink>
+                        :
+                        <>
+                            <NavLink to='/signup' className='mr-2'>sign up</NavLink>
+                            <NavLink to='/login' className='mr-2'>Log In</NavLink>
+                        </>
+                }
             </div>
         </div>
     );
