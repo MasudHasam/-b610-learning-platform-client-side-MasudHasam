@@ -5,6 +5,7 @@ import SignUp from '../Authentication/SignUp';
 import Blog from '../Blog/Blog';
 import CheckOut from '../CheckOut/CheckOut';
 import Common from '../Common/Common';
+import CourseDetails from '../CourseDetails/CourseDetails';
 import Coursess from '../Courses/Coursess';
 import DarkTheme from '../DarkTheme/DarkTheme';
 import FAQ from '../FAQ/FAQ';
@@ -19,6 +20,7 @@ const Routes = () => {
     const router = createBrowserRouter([
         {
             path: '/',
+            errorElement: <p>404!<br />error</p>,
             element: <Main></Main>,
             children: [
                 {
@@ -64,6 +66,10 @@ const Routes = () => {
                     path: '/signup',
                     element: <SignUp></SignUp>
                 },
+                {
+                    path: 'coursedetails',
+                    element: <CourseDetails></CourseDetails>
+                }
 
             ]
         }

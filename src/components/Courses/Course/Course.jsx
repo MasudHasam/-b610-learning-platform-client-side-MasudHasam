@@ -12,7 +12,7 @@ const Course = ({ course }) => {
                         <p>{about.slice(0, 100)}...</p>
                         <div className="card-actions justify-start mt-7">
                             <Link to='/checkout' className="btn btn-primary">Get premium access </Link>
-                            <button className="btn btn-primary">Details</button>
+                            <Link to='/coursedetails'> <button className="btn btn-primary">Details</button></Link>
                         </div>
                     </div>
                     <img className='h-64 w-full lg:w-1/2' src={picture} alt="Album" />
@@ -21,7 +21,7 @@ const Course = ({ course }) => {
                         <p>{about}</p>
                         <div className="card-actions justify-start flex flex-row gap-2">
                             <Link to='/checkout' className="btn btn-primary">Get premium access </Link>
-                            <button className="btn btn-primary">Details</button>
+                            <Link to='/coursedetails'> <button className="btn btn-primary">Details</button></Link>
                         </div>
                     </div>
                 </div>
