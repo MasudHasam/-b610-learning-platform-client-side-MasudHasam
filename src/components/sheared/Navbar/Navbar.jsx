@@ -5,15 +5,21 @@ import { Link, NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from '../../../AuthContext/AuthContext';
 import { GiHumanTarget } from 'react-icons/gi';
+import Category from '../Category/Category';
 
 const Navbar = () => {
-    const { handelLogOut, user } = useContext(UserContext);
+    const { handelLogOut, user, category, id, setId } = useContext(UserContext);
     const logOut = () => {
         handelLogOut()
             .then(result => {
 
             })
             .catch(error => console.log(error));
+    }
+
+    const hadelDynamicRout = (categoryId) => {
+        const id = categoryId;
+        setId(id)
     }
 
     return (
@@ -25,12 +31,22 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><NavLink to='/home'>Home</NavLink></li>
-                        <li><NavLink to='/courses'>Courses</NavLink></li>
+                        <li tabIndex={0}>
+                            <Link to='/courses' className="justify-between">
+                                Courses
+                                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+                            </Link>
+                            <ul className="p-2 bg-slate-100 ">
+                                {
+                                    !category ? <p>Loading....</p> :
+                                        category.map(ctg => <Category key={ctg.categoryId} category={ctg}
+                                            hadelDynamicRout={hadelDynamicRout} ></Category>)
+                                }
+                            </ul>
+                        </li>
                         <li><NavLink to='/blog'>Blog</NavLink></li>
                         <li><NavLink to='/faq'>FAQ</NavLink></li>
                         <li><NavLink to='/darktheme'>Dark Mod</NavLink></li>
-                        <h1>All Courses</h1>
-
                     </ul>
                 </div>
 
