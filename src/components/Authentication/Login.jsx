@@ -5,7 +5,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../AuthContext/AuthContext';
 
 const Login = () => {
-    const { handelLogIn, loading } = useContext(UserContext);
+    const { handelLogIn, loading, setLoading } = useContext(UserContext);
+    const [error, setError] = useState();
 
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -29,7 +30,10 @@ const Login = () => {
                 navigate(from, { replace: true });
 
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                alert(error)
+                setLoading(false)
+            })
     }
 
     return (
@@ -55,6 +59,7 @@ const Login = () => {
                                 <label className="label">
                                     <Link to='/signup' className="label-text-alt link link-hover"><small>New hear</small></Link>
                                 </label>
+                                <p className='text-red-500'>{error?.error}</p>
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
