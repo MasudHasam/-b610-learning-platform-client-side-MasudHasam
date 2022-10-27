@@ -67,7 +67,7 @@ const Navbar = () => {
                 <NavLink to='/checkout'><BsCartCheck className='mr-2 w-6 h-6'></BsCartCheck></NavLink>
                 {
                     user && user?.photoURL ?
-                        <button className='mr-2 w-8 h-8 '><img className='rounded-full' src={user?.photoURL} alt="" /></button> :
+                        <button className='mr-2 w-8 h-8 '><img className='rounded-full' src={user?.photoURL} alt="" title={user?.displayName} /></button> :
                         <GiHumanTarget className='mr-2 w-8 h-8 '></GiHumanTarget>
                 }
                 {

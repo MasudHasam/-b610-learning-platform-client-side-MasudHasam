@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../AuthContext/AuthContext';
@@ -28,7 +29,7 @@ const Login = () => {
                 navigate(from, { replace: true });
 
             })
-            .catch(error => console.error(error))
+            .catch(error => console.log(error))
     }
 
     return (

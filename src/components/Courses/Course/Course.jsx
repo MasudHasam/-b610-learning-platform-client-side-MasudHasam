@@ -1,8 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { UserContext } from '../../../AuthContext/AuthContext';
+
 
 const Course = ({ course }) => {
     const { name, about, picture } = course;
+    const { singleCourse, setSingleCourse, manageAccess } = useContext(UserContext);
+
     return (
         <div>
             <div className='grid grid-cols-1 mb-8'>
@@ -11,8 +16,8 @@ const Course = ({ course }) => {
                         <h2 className="card-title mb-6">{name}</h2>
                         <p>{about.slice(0, 100)}...</p>
                         <div className="card-actions justify-start mt-7">
-                            <Link to='/checkout' className="btn btn-primary">Get premium access </Link>
-                            <Link to='/coursedetails'> <button className="btn btn-primary">Details</button></Link>
+                            <Link to={`/checkout/${course._id}`} className="btn btn-primary">Get premium access </Link>
+                            <Link to={`/course/${course._id}`} className="btn btn-primary">Details</Link>
                         </div>
                     </div>
                     <img className='h-64 w-full lg:w-1/2' src={picture} alt="Album" />
@@ -21,7 +26,7 @@ const Course = ({ course }) => {
                         <p>{about}</p>
                         <div className="card-actions justify-start flex flex-row gap-2">
                             <Link to='/checkout' className="btn btn-primary">Get premium access </Link>
-                            <Link to='/coursedetails'> <button className="btn btn-primary">Details</button></Link>
+                            <Link > <button className="btn btn-primary">Details</button></Link>
                         </div>
                     </div>
                 </div>

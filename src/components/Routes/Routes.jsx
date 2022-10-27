@@ -6,13 +6,11 @@ import Blog from '../Blog/Blog';
 import CheckOut from '../CheckOut/CheckOut';
 import Common from '../Common/Common';
 import CourseDetails from '../CourseDetails/CourseDetails';
-import Coursess from '../Courses/Coursess';
 import DarkTheme from '../DarkTheme/DarkTheme';
 import FAQ from '../FAQ/FAQ';
 import Home from '../Home/Home';
 import Main from '../Layout/Main';
 import PrivetRout from '../PrivetRout/PrivetRout';
-import SideNav from '../sheared/SideNav/SideNav';
 import './Routes.css'
 
 
@@ -55,8 +53,11 @@ const Routes = () => {
                     element: <DarkTheme></DarkTheme>
                 },
                 {
-                    path: '/checkout',
-                    element: <PrivetRout><CheckOut></CheckOut></PrivetRout>
+                    path: '/checkout/:id',
+                    element: <PrivetRout><CheckOut></CheckOut></PrivetRout>,
+                    loader: async ({ params }) => {
+                        return fetch(`https://b610-learning-platform-assignment-server.vercel.app/course/${params.id}`);
+                    },
                 },
                 {
                     path: '/login',
@@ -67,8 +68,11 @@ const Routes = () => {
                     element: <SignUp></SignUp>
                 },
                 {
-                    path: 'coursedetails',
-                    element: <CourseDetails></CourseDetails>
+                    path: `/course/:id`,
+                    element: <CourseDetails></CourseDetails>,
+                    loader: async ({ params }) => {
+                        return fetch(`https://b610-learning-platform-assignment-server.vercel.app/course/${params.id}`);
+                    },
                 }
 
             ]

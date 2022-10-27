@@ -58,7 +58,8 @@ const AuthContext = ({ children }) => {
         setLoading, handelLogIn,
         handelLogOut, handelGithubSingIn,
         handelSignUpWithEmail,
-        id, setId
+        id, setId,
+
     }
 
     return (

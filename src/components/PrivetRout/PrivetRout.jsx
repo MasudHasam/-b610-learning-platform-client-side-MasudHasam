@@ -9,9 +9,7 @@ const PrivetRout = ({ children }) => {
     if (loading) {
         return <div>Loading...</div>
     }
-    console.log(user);
-    if (user || user?.uid) {
-        console.log(user);
+    if (user && user?.uid) {
         return children;
     }
     return <Navigate to='/login' state={{ from: location }} replace></Navigate>
