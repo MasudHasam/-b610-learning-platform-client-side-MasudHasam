@@ -11,13 +11,19 @@ const Home = () => {
 
     return (
         <div>
-            <h1>this is home {
-
-                loading ? <p>Loading...</p> :
-                    user?.displayName
-
-            }</h1>
-            <h1>hello</h1>
+            <div className="hero min-h-screen" style={{ backgroundImage: `url("https://placeimg.com/1000/800/arch")` }}>
+                <div className="hero-overlay bg-opacity-60"></div>
+                <div className="hero-content text-center text-neutral-content">
+                    <div className="max-w-md">
+                        <h1 className="mb-5 text-5xl font-bold">Welcome To LVT <br /><small>Learn Varity Tech</small></h1>
+                        <p className="mb-5">welcome to learn varity tech . hear you can learn almost 6 mejor types of course. so let's learn together</p>
+                        <div >
+                            <button className="btn btn-primary mr-4">Sign Up</button>
+                            <button className="btn btn-info">Log In</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

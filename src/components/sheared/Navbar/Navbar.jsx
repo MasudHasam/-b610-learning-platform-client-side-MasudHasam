@@ -87,8 +87,8 @@ const Navbar = () => {
                         <NavLink onClick={logOut}>Log Out</NavLink>
                         :
                         <>
-                            <NavLink to='/signup' className='mr-2'>sign up</NavLink>
-                            <NavLink to='/login' className='mr-2'>Log In</NavLink>
+                            <NavLink to='/signup' className='mr-2 hover:bg-red-500 rounded-md hover:text-white'>sign up</NavLink>
+                            <NavLink to='/login' className=' hover:bg-red-500  rounded-md hover:text-white'>Log In</NavLink>
                         </>
                 }
             </div>
