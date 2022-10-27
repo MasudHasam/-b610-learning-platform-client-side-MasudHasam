@@ -6,9 +6,14 @@ import { useContext } from 'react';
 import { UserContext } from '../../../AuthContext/AuthContext';
 import { GiHumanTarget } from 'react-icons/gi';
 import Category from '../Category/Category';
+import { useState } from 'react';
 
 const Navbar = () => {
     const { handelLogOut, user, category, id, setId } = useContext(UserContext);
+    const [mood, setMood] = useState(true);
+    const handelMood = () => {
+        setMood(!mood)
+    }
     const logOut = () => {
         handelLogOut()
             .then(result => {
@@ -21,6 +26,7 @@ const Navbar = () => {
         const id = categoryId;
         setId(id)
     }
+
 
     return (
         <div className="navbar bg-orange-200">
@@ -46,7 +52,10 @@ const Navbar = () => {
                         </li>
                         <li><NavLink to='/blog'>Blog</NavLink></li>
                         <li><NavLink to='/faq'>FAQ</NavLink></li>
-                        <li><NavLink to='/darktheme'>Dark Mod</NavLink></li>
+                        {
+                            mood ? <li><Link onClick={handelMood}>Light Mod</Link></li> :
+                                <li><Link onClick={handelMood}>Dark Mod</Link></li>
+                        }
                     </ul>
                 </div>
 
@@ -60,7 +69,10 @@ const Navbar = () => {
                     <li><NavLink to='/courses'>Courses</NavLink></li>
                     <li><NavLink to='/blog'>Blog</NavLink></li>
                     <li><NavLink to='/faq'>FAQ</NavLink></li>
-                    <li><NavLink to='/darktheme'>Dark Mod</NavLink></li>
+                    {
+                        mood ? <li><Link onClick={handelMood}>Light Mod</Link></li> :
+                            <li><Link onClick={handelMood}>Dark Mod</Link></li>
+                    }
                 </ul>
             </div>
             <div className="navbar-end">

@@ -6,7 +6,6 @@ import Blog from '../Blog/Blog';
 import CheckOut from '../CheckOut/CheckOut';
 import Common from '../Common/Common';
 import CourseDetails from '../CourseDetails/CourseDetails';
-import DarkTheme from '../DarkTheme/DarkTheme';
 import FAQ from '../FAQ/FAQ';
 import Home from '../Home/Home';
 import Main from '../Layout/Main';
@@ -47,10 +46,6 @@ const Routes = () => {
                 {
                     path: '/faq',
                     element: <FAQ></FAQ>
-                },
-                {
-                    path: '/darktheme',
-                    element: <DarkTheme></DarkTheme>
                 },
                 {
                     path: '/checkout/:id',
