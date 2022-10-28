@@ -6,7 +6,7 @@ const Category = ({ category, hadelDynamicRout, }) => {
     // console.log(categoryId);
 
     return (
-        <div onClick={() => hadelDynamicRout(categoryId)} className='mb-3 hover:bg-orange-300 px-3 py-1 rounded-md'>
+        <div onClick={() => hadelDynamicRout(categoryId)} className='mb-3 hover:bg-orange-300 hover:px-1 px-3 py-1 rounded-md'>
             {
                 <NavLink>{name}</NavLink>
             }

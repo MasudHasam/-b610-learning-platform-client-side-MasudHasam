@@ -40,8 +40,12 @@ const Common = () => {
     return (
         <div>
             <div className='gridColumns w-11/12 mx-auto'>
-                <SideNav hadelDynamicRout={hadelDynamicRout}></SideNav>
-                <Coursess courses={courses}></Coursess>
+                <div className='lg:h-screen sticky top-20'>
+                    <SideNav hadelDynamicRout={hadelDynamicRout}></SideNav>
+                </div>
+                <div>
+                    <Coursess courses={courses}></Coursess>
+                </div>
             </div>
         </div>
     );

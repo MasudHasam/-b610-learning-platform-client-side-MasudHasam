@@ -6,7 +6,7 @@ const CheckOut = () => {
     const data = useLoaderData()
     const { name, _id, about, picture } = data;
     return (
-        <div>
+        <div className='mb-6'>
             <div className="card w-96 mx-auto
              bg-base-100 shadow-xl">
                 <div className="card-body">

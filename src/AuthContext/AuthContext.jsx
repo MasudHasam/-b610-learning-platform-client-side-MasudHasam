@@ -1,6 +1,6 @@
 import React from 'react';
 import { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import app from '../Firebase/Firebase.init'
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -43,6 +43,10 @@ const AuthContext = ({ children }) => {
         return signOut(Auth);
     }
 
+    const handelReset = (email) => {
+        return sendPasswordResetEmail(Auth, email);
+    }
+
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(Auth, currentUser => {
             setUser(currentUser);
@@ -59,6 +63,7 @@ const AuthContext = ({ children }) => {
         handelLogOut, handelGithubSingIn,
         handelSignUpWithEmail,
         id, setId,
+        handelReset,
 
     }
 

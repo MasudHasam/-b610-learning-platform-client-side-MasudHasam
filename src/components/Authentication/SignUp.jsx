@@ -1,4 +1,7 @@
+
+import ReactDOM from 'react-dom';
 import React, { useContext } from 'react';
+
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../AuthContext/AuthContext';
 
@@ -22,8 +25,6 @@ const SignUp = () => {
     const signInWithGithub = () => {
         handelGithubSingIn()
             .then(result => {
-                const user = result.user;
-                console.log(user);
                 navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
@@ -37,12 +38,11 @@ const SignUp = () => {
         const password = form.password.value;
         handelSignUpWithEmail(email, password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
                 navigate(from, { replace: true })
             })
             .catch(error => console.log(error))
     }
+
 
 
     return (

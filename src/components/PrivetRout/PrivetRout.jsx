@@ -7,7 +7,7 @@ const PrivetRout = ({ children }) => {
     const { user, loading } = useContext(UserContext);
     const location = useLocation();
     if (loading) {
-        return <div>Loading...</div>
+        return <div><progress className="progress w-16"></progress></div>
     }
     if (user && user?.uid) {
         return children;
