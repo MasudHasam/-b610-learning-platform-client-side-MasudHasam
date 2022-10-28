@@ -25,8 +25,8 @@ const Course = ({ course }) => {
                         <h2 className="card-title">{name}</h2>
                         <p>{about}</p>
                         <div className="card-actions justify-start flex flex-row gap-2">
-                            <Link to='/checkout' className="btn btn-primary">Get premium access </Link>
-                            <Link > <button className="btn btn-primary">Details</button></Link>
+                            <Link to={`/checkout/${course._id}`} className="btn btn-primary">Get premium access </Link>
+                            <Link to={`/course/${course._id}`}> <button className="btn btn-primary">Details</button></Link>
                         </div>
                     </div>
                 </div>

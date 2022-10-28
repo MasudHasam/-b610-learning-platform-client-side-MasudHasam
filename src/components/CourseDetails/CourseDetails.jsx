@@ -49,7 +49,7 @@ const CourseDetails = () => {
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
-                    <img src={picture} className="max-w-sm rounded-lg shadow-2xl" alt='' />
+                    <img src={picture} className="w-80 lg:w-80 rounded-lg" alt='' />
                     <div>
                         <h1 className="text-5xl font-bold">{name}</h1>
                         <p className="py-6">{about}</p>
