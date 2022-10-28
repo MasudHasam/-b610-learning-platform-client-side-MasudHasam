@@ -12,7 +12,7 @@ const Main = () => {
             <div className='relative'>
                 <Outlet></Outlet>
             </div>
-            <div>
+            <div className=''>
                 <Footer></Footer>
             </div>
         </div>
