@@ -17,7 +17,7 @@ const Home = () => {
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
                         <h1 className="mb-5 text-5xl font-bold">Welcome To LVT <br /><small>Learn Varity Tech</small></h1>
-                        <p className="mb-5">welcome to learn varity tech . hear you can learn almost 6 mejor types of course. so let's learn together</p>
+                        <p className="mb-5">welcome to learn varity tech. hear you can learn almost 6 mejor types of course. so let's learn together</p>
                         {
                             newUser && newUser?.uid ?
                                 <Link to='/courses' className='btn btn-secondary'>Visit Our All Courses</Link>
